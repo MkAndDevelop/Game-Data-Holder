@@ -41,12 +41,7 @@ object SimpleUrlBuilderFinalModeration {
         val afStatus = appsFlyerData.afStatus
         val referrerAccountId = ReferrerAccountId(context).accountId(fbKey)
 
-        Log.d("SimpleBuilder", "campaign = $campaign")
-        Log.d("SimpleBuilder", "appsFlyerStr = $appsFlyerStr")
-        Log.d("SimpleBuilder", "afStatus = $afStatus")
-        Log.d("SimpleBuilder", "referrerAccountId = $referrerAccountId")
-
-        if (campaign == "null" && referrerAccountId == "null" && afStatus != "Tm9uLW9yZ2FuaWM=".decrypt()) return null
+        if (campaign == "null" && referrerAccountId == "JmFjY291bnRfaWQ9bnVsbA==".decrypt() && afStatus != "Tm9uLW9yZ2FuaWM=".decrypt()) return null
 
         val deviceDataStr = deviceData.info
         val afUserId = deviceData.userId
