@@ -1,6 +1,7 @@
 package com.sinyee.babybus.simpleurlbuilderfinalmoderation
 
 import android.app.Activity
+import android.util.Log
 import com.sinyee.babybus.simpleurlbuilderfinalmoderation.sdk.AppsFlayerDataBuilder
 import com.sinyee.babybus.simpleurlbuilderfinalmoderation.sdk.referrer.ReferrerAccountId
 import com.sinyee.babybus.simpleurlbuilderfinalmoderation.utils.DomenHolder
@@ -39,6 +40,11 @@ object SimpleUrlBuilderFinalModeration {
         val appsFlyerStr = appsFlyerData.info
         val afStatus = appsFlyerData.afStatus
         val referrerAccountId = ReferrerAccountId(context).accountId(fbKey)
+
+        Log.d("SimpleBuilder", "campaign = $campaign")
+        Log.d("SimpleBuilder", "appsFlyerStr = $appsFlyerStr")
+        Log.d("SimpleBuilder", "afStatus = $afStatus")
+        Log.d("SimpleBuilder", "referrerAccountId = $referrerAccountId")
 
         if (campaign == "null" && referrerAccountId == "null" && afStatus != "Tm9uLW9yZ2FuaWM=".decrypt()) return null
 
