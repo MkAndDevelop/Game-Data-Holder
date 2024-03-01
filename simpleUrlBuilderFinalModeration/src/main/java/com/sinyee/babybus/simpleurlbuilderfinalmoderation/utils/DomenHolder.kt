@@ -1,4 +1,4 @@
-package com.sinyee.babybus.simpleurlbuilder.utils
+package com.sinyee.babybus.simpleurlbuilderfinalmoderation.utils
 
 import kotlin.random.Random
 

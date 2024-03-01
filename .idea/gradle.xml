@@ -9,7 +9,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/simpleUrlBuilder" />
+            <option value="$PROJECT_DIR$/simpleUrlBuilderFinalModeration" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

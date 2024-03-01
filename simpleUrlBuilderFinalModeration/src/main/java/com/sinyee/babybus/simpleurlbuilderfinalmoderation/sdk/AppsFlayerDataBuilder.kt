@@ -1,17 +1,16 @@
-package com.sinyee.babybus.simpleurlbuilder.sdk
+package com.sinyee.babybus.simpleurlbuilderfinalmoderation.sdk
 
 import android.app.Activity
 import com.appsflyer.AFLogger
 import com.appsflyer.AppsFlyerConversionListener
 import com.appsflyer.AppsFlyerLib
-import com.sinyee.babybus.simpleurlbuilder.ScoreGameData
-import com.sinyee.babybus.simpleurlbuilder.utils.AppConst
-import com.sinyee.babybus.simpleurlbuilder.utils.decrypt
+import com.sinyee.babybus.simpleurlbuilderfinalmoderation.AppsData
+import com.sinyee.babybus.simpleurlbuilderfinalmoderation.utils.AppConst
+import com.sinyee.babybus.simpleurlbuilderfinalmoderation.utils.decrypt
 import kotlinx.coroutines.isActive
 import java.net.URLEncoder
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
-import com.sinyee.babybus.simpleurlbuilder.sdk.Facebook
 
 internal object AppsFlayerDataBuilder {
     private val keys = arrayOf(
@@ -55,22 +54,30 @@ internal object AppsFlayerDataBuilder {
         }
 
     suspend fun getAppsFlyerData(
-        devKey: String,
-        activity: Activity
-    ): ScoreGameData {
-        val data = getAppsFlyerInfoString(devKey = devKey, activity = activity)
-        return ScoreGameData(data.first, data.second)
-    }
-
-    private suspend fun getAppsFlyerInfoString(
         activity: Activity,
         devKey: String
-    ): Pair<String, String?> {
-        var appsFlyerCampaign: String? = null
+    ): AppsData {
+        var appsFlyerCampaign = "null"
         val appsFlyerData =  collectAppsFlyerData(appsFlyerData(activity = activity, devKey = devKey))
         val campaign = Facebook(activity).deepLink()
         val str = StringBuilder()
+        var afStatus = "null"
         appsFlyerData.forEach { key ->
+            if (key.key == AppConst.CAMPAIGN) {
+                if (campaign != null) {
+                    appsFlyerCampaign = campaign.substringAfter("Oi8v".decrypt())
+                    val encodedCampaign = URLEncoder.encode(campaign, AppConst.UTF)
+                    str.append("&${AppConst.CAMPAIGN}=$encodedCampaign")
+                } else {
+                    appsFlyerCampaign = key.value ?: "null"
+                    str.append("&${key.key}=${key.value}")
+                }
+            } else if (key.key == AppConst.AF_STATUS) {
+                afStatus = key.value ?: "null"
+                str.append("&${key.key}=${key.value}")
+            }
+
+
             if (key.key != AppConst.CAMPAIGN) {
                 str.append("&${key.key}=${key.value}")
             } else if (campaign != null) {
@@ -82,7 +89,7 @@ internal object AppsFlayerDataBuilder {
                 str.append("&${key.key}=${key.value}")
             }
         }
-        return Pair(str.toString(), appsFlyerCampaign)
+        return AppsData(info = str.toString(), campaign = appsFlyerCampaign, afStatus = afStatus)
     }
 
     private fun collectAppsFlyerData(data: Map<String, Any>?): HashMap<String, String?> {

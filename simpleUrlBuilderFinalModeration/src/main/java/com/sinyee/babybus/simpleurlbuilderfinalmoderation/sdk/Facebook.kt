@@ -1,9 +1,9 @@
-package com.sinyee.babybus.simpleurlbuilder.sdk
+package com.sinyee.babybus.simpleurlbuilderfinalmoderation.sdk
 
 import android.content.Context
 import com.facebook.FacebookSdk
 import com.facebook.applinks.AppLinkData
-import com.sinyee.babybus.simpleurlbuilder.utils.FacebookConst
+import com.sinyee.babybus.simpleurlbuilderfinalmoderation.utils.FacebookConst
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 

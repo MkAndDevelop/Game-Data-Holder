@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'com.sinyee.babybus.simpleurlbuilder'
+    namespace 'com.sinyee.babybus.simpleurlbuilderfinalmoderation'
     compileSdk 34
 
     defaultConfig {
@@ -40,7 +40,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     //AppsFlyer
-    implementation("com.appsflyer:af-android-sdk:6.12.6")
+    implementation("com.appsflyer:af-android-sdk:6.13.0")
 
     //FaceBook
     implementation("com.facebook.android:facebook-android-sdk:16.3.0")
@@ -56,8 +56,8 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
                 groupId = 'com.mk.develop'
-                artifactId = 'simpleUrlBuilder'
-                version = '2.2.3'
+                artifactId = 'simpleUrlBuilderFinalModeration'
+                version = '1.0.0'
             }
         }
     }

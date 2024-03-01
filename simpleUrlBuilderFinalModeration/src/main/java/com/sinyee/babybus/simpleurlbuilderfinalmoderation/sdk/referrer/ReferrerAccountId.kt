@@ -1,7 +1,7 @@
-package com.sinyee.babybus.simpleurlbuilder.sdk.referrer
+package com.sinyee.babybus.simpleurlbuilderfinalmoderation.sdk.referrer
 
 import android.content.Context
-import com.sinyee.babybus.simpleurlbuilder.utils.AppConst
+import com.sinyee.babybus.simpleurlbuilderfinalmoderation.utils.AppConst
 import org.json.JSONObject
 import java.net.URLDecoder
 import javax.crypto.Cipher

@@ -1,4 +1,4 @@
-package com.sinyee.babybus.simpleurlbuilder.sdk.referrer
+package com.sinyee.babybus.simpleurlbuilderfinalmoderation.sdk.referrer
 
 import android.content.Context
 import com.android.installreferrer.api.InstallReferrerClient

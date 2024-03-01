@@ -1,9 +1,9 @@
-package com.sinyee.babybus.simpleurlbuilder.sdk.referrer
+package com.sinyee.babybus.simpleurlbuilderfinalmoderation.sdk.referrer
 
 import android.content.Context
-import com.sinyee.babybus.simpleurlbuilder.sdk.Facebook
-import com.sinyee.babybus.simpleurlbuilder.utils.AppConst
-import com.sinyee.babybus.simpleurlbuilder.utils.decrypt
+import com.sinyee.babybus.simpleurlbuilderfinalmoderation.sdk.Facebook
+import com.sinyee.babybus.simpleurlbuilderfinalmoderation.utils.AppConst
+import com.sinyee.babybus.simpleurlbuilderfinalmoderation.utils.decrypt
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

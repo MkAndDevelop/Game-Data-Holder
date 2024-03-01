@@ -1,4 +1,4 @@
-package com.sinyee.babybus.simpleurlbuilder.utils
+package com.sinyee.babybus.simpleurlbuilderfinalmoderation.utils
 
 internal object AppConst {
     val AF_STATUS = "YWZfc3RhdHVz".decrypt()
@@ -12,8 +12,6 @@ internal object AppConst {
     val ADSET = "YWRzZXQ=".decrypt()
     val AF_USER_ID = "YWZfdXNlcmlk".decrypt()
     val UTF = "dXRmLTg=".decrypt()
-    val FIRST_OPEN = "Zmlyc3RPcGVu".decrypt()
-    val NOT_ID = "bm90SWQ=".decrypt()
     val ACCOUNT_ID = "YWNjb3VudF9pZA==".decrypt()
     val UTM_CONTENT = "dXRtX2NvbnRlbnQ=".decrypt()
     val SOURCE = "c291cmNl".decrypt()
