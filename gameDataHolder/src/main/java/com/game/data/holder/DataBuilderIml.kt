@@ -14,9 +14,8 @@ class DataBuilderIml {
         gameDataU: String,
         gameDataA: String,
         gameDataR: String,
-        gameData: String,
         context: Context
-    ): HashMap<String, String> {
+    ): HashMap<String, String>? {
         val newGameData = hashMapOf<String, String>()
         val currentDate = LocalDate.now()
         if (currentDate.isAfter(date) || currentDate.isEqual(date)) {
@@ -36,10 +35,7 @@ class DataBuilderIml {
                 newGameData[gameDataR] = installData
                 return newGameData
             }
-        } else {
-            newGameData[gameDataU] = gameData
-            return newGameData
-        }
+        } else return null
     }
 
     companion object {
