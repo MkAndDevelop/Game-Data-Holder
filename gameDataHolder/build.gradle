@@ -17,7 +17,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -58,7 +58,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.mk.develop'
                 artifactId = 'gameDataHolder'
-                version = '1.0.2'
+                version = '1.0.3'
             }
         }
     }
