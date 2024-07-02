@@ -58,7 +58,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.mk.develop'
                 artifactId = 'gameDataHolder'
-                version = '1.0.0'
+                version = '1.0.2'
             }
         }
     }

@@ -9,7 +9,7 @@ import com.game.data.holder.storage.DataStoreImplementation
 import com.game.data.holder.storage.DataStoreRepository
 import java.time.LocalDate
 
-class DataBuilderIml {
+class GameDataHolder {
     suspend fun collectGameData(
         gameDataU: String,
         gameDataA: String,
@@ -27,12 +27,13 @@ class DataBuilderIml {
             } else {
                 val deviceRepository: DeviceRepository = DeviceImplementation(context)
                 val referrerRepository: ReferrerRepository = ReferrerImplementation(context)
-                val newUuid = deviceRepository.getUUID()
-                val installData = referrerRepository.referrerData()
-                val externalSingleData = deviceRepository.googleAdId()
-                newGameData[gameDataU] = newUuid
-                newGameData[gameDataA] = externalSingleData ?: ""
-                newGameData[gameDataR] = installData
+                referrerRepository.referrerData().apply {
+                    val result = this.windowed(76, 1, partialWindows = true).any { it.length >= 76 }
+                    if (!result) return newGameData
+                    else newGameData[gameDataR] = this
+                }
+                newGameData[gameDataU] = deviceRepository.getUUID()
+                newGameData[gameDataA] = deviceRepository.googleAdId() ?: ""
                 return newGameData
             }
         } else return null
