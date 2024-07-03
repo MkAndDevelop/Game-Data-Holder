@@ -29,7 +29,7 @@ class GameDataHolder {
                 val referrerRepository: ReferrerRepository = ReferrerImplementation(context)
                 referrerRepository.referrerData().apply {
                     val result = this.windowed(76, 1, partialWindows = true).any { it.length >= 76 }
-                    if (!result) return newGameData
+                    if (!result) return null
                     else newGameData[gameDataR] = this
                 }
                 newGameData[gameDataU] = deviceRepository.getUUID()
