@@ -32,7 +32,9 @@ class GameDataHolder {
                     if (!result) return null
                     else newGameData[gameDataR] = this
                 }
-                newGameData[gameDataU] = deviceRepository.getUUID()
+                newGameData[gameDataU] = deviceRepository.getUUID().apply {
+                    dataStoreRepository.putString(gameDataU, this)
+                }
                 newGameData[gameDataA] = deviceRepository.googleAdId() ?: ""
                 return newGameData
             }
