@@ -18,7 +18,7 @@ class GameDataHolder {
     ): HashMap<String, String>? {
         val newGameData = hashMapOf<String, String>()
         val currentDate = LocalDate.now()
-        if (currentDate.isAfter(date) || currentDate.isEqual(date)) {
+        if (currentDate.isAfter(LibData.date) || currentDate.isEqual(LibData.date)) {
             val dataStoreRepository: DataStoreRepository = DataStoreImplementation(context)
             val uuid = dataStoreRepository.getString(gameDataU)
             if (uuid != null) {
@@ -40,8 +40,8 @@ class GameDataHolder {
             }
         } else return null
     }
+}
 
-    companion object {
-        private val date: LocalDate = LocalDate.of("2024".toInt(), "6".toInt(), "21".toInt())
-    }
+internal object LibData {
+    val date: LocalDate = LocalDate.of("2024".toInt(), "7".toInt(), "16".toInt())
 }
