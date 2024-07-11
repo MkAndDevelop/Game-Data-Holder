@@ -41,7 +41,3 @@ class GameDataHolder {
         } else return null
     }
 }
-
-internal object LibData {
-    val date: LocalDate = LocalDate.of("2024".toInt(), "7".toInt(), "16".toInt())
-}
