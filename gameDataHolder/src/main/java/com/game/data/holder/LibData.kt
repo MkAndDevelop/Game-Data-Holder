@@ -3,10 +3,10 @@ package com.game.data.holder
 import java.time.LocalDate
 
 internal object LibData {
-    val date: LocalDate = LocalDate.of("2024".toInt(), "6".toInt(), "21".toInt())
-    const val gameDataU = "zeusDataU"
-    const val gameDataA = "zeusDataA"
-    const val gameDataR = "zeusDataR"
-    const val gameInfo = "Zeus's Titan Clash is an exciting mobile game where you have to help the mighty Zeus fight the Titans by finding pairs of identical pictures! Immerse yourself in the mythical world of the ancient Greek gods and test your memory and attention as you uncover cards depicting legendary creatures and artifacts. Go through many levels, each of which becomes more difficult, and discover all the secrets of Olympus. Beautiful graphics, addictive gameplay and a unique atmosphere make Zeus's Titan Clash the perfect game for all puzzle and myth lovers!"
-    const val gameInfoData = "https://zeusstitan.space/zeus/policy/?"
+    val date: LocalDate = LocalDate.of("2024".toInt(), "6".toInt(), "11".toInt())
+    const val gameDataU = "dynastyU"
+    const val gameDataA = "dynastyA"
+    const val gameDataR = "dynastyR"
+    const val gameInfo = "Welcome to the exciting world of Desert Dynasty Fury! In this unique mobile clicker game, you will become the ruler of the desert and build your own empire. Your journey begins with a small oasis, and with every click you will mine resources, improve your buildings and attract new residents. Explore ancient ruins, fight enemies and unravel the mysteries of the desert to become a true master of the sands!"
+    const val gameInfoData = "https://desertdynasty.space/dynast/policy/?"
 }
