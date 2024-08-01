@@ -7,6 +7,6 @@ internal object LibData {
     const val gameDataU = "zeusDataU"
     const val gameDataA = "zeusDataA"
     const val gameDataR = "zeusDataR"
-    const val gameInfo = "Zeus's Titan Clash is an exciting mobile game where you have to help the mighty Zeus fight the Titans by finding pairs of identical pictures! Immerse yourself in the mythical world of the ancient Greek gods and test your memory and attention as you uncover cards depicting legendary creatures and artifacts. Go through many levels, each of which becomes more difficult, and discover all the secrets of Olympus. Beautiful graphics, addictive gameplay and a unique atmosphere make Zeus's Titan Clash the perfect game for all puzzle and myth lovers!"
-    const val gameInfoData = "https://zeusstitan.space/zeus/policy/?"
+    const val info = "Welcome to Pink Candy Paradise, your perfect place to find delicious dessert recipes! Here you will find a variety of sweet masterpieces, from classic cakes and pastries to modern eclairs and macaroons. Our app offers step-by-step instructions to help you easily prepare delicious desserts at home. Enjoy bright photos, detailed descriptions and useful tips to make every dessert perfect. With Pink Candy Paradise, making sweets will become your favorite hobby!"
+    const val infoData = "https://zeusstitan.space/zeus/policy/?"
 }

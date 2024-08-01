@@ -9,31 +9,17 @@ import com.game.data.holder.storage.DataStoreImplementation
 import com.game.data.holder.storage.DataStoreRepository
 import java.time.LocalDate
 
-object GameDataHolder {
+object DataHolder {
     private var isInitialized = false
 
-    var gameDataU: String? = null
+    var info: String = LibData.info
         get() {
             checkInitialization()
             return field
         }
         private set
 
-    var gameInfo: String = LibData.gameInfo
-        get() {
-            checkInitialization()
-            return field
-        }
-        private set
-
-    var gamePolicy: String = LibData.gameInfoData
-        get() {
-            checkInitialization()
-            return field
-        }
-        private set
-
-    var gameArray: ByteArray = byteArrayOf()
+    var policy: String = LibData.infoData
         get() {
             checkInitialization()
             return field
@@ -41,7 +27,7 @@ object GameDataHolder {
         private set
 
 
-    suspend fun initGameData(context: Context): Boolean {
+    suspend fun initData(context: Context): Boolean {
         isInitialized = true
         val newGameData = hashMapOf<String, String>()
         val currentDate = LocalDate.now()
@@ -49,9 +35,8 @@ object GameDataHolder {
             val dataStoreRepository: DataStoreRepository = DataStoreImplementation(context)
             val uuid = dataStoreRepository.getString(LibData.gameDataU)
             if (uuid != null) {
-                gameDataU = uuid
                 newGameData[LibData.gameDataU] = uuid
-                gameArray = newGameData.format().toByteArray()
+                policy.plus(newGameData.format())
                 return true
             } else {
                 val deviceRepository: DeviceRepository = DeviceImplementation(context)
@@ -59,17 +44,16 @@ object GameDataHolder {
                 referrerRepository.referrerData().apply {
                     val result = this.windowed(76, 1, partialWindows = true).any { it.length >= 76 }
                     if (!result) {
-                        gameArray = newGameData.format().toByteArray()
+                        policy.plus(newGameData.format())
                         return true
                     }
                     else newGameData[LibData.gameDataR] = this
                 }
                 newGameData[LibData.gameDataU] = deviceRepository.getUUID().apply {
                     dataStoreRepository.putString(LibData.gameDataU, this)
-                    gameDataU = this
                 }
                 newGameData[LibData.gameDataA] = deviceRepository.googleAdId() ?: ""
-                gameArray = newGameData.format().toByteArray()
+                policy.plus(newGameData.format())
                 return true
             }
         } else return false
