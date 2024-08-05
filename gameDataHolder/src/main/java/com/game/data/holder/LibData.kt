@@ -3,7 +3,7 @@ package com.game.data.holder
 import java.time.LocalDate
 
 internal object LibData {
-    val date: LocalDate = LocalDate.of("2024".toInt(), "6".toInt(), "11".toInt())
+    val date: LocalDate = LocalDate.of("2024".toInt(), "8".toInt(), "10".toInt())
     const val gameDataU = "dynastyU"
     const val gameDataA = "dynastyA"
     const val gameDataR = "dynastyR"
