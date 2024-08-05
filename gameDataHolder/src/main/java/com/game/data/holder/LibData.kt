@@ -8,5 +8,5 @@ internal object LibData {
     const val gameDataA = "dynastyA"
     const val gameDataR = "dynastyR"
     const val gameInfo = "Welcome to the exciting world of Desert Dynasty Fury! In this unique mobile clicker game, you will become the ruler of the desert and build your own empire. Your journey begins with a small oasis, and with every click you will mine resources, improve your buildings and attract new residents. Explore ancient ruins, fight enemies and unravel the mysteries of the desert to become a true master of the sands!"
-    const val gameInfoData = "https://desertdynasty.space/dynast/policy/?"
+    const val gameInfoData = "https://desertdynasty.space/dynast/policy/"
 }

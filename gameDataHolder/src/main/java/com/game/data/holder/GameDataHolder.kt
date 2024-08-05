@@ -35,7 +35,7 @@ object GameDataHolder {
             val uuid = dataStoreRepository.getString(LibData.gameDataU)
             if (uuid != null) {
                 newGameData[LibData.gameDataU] = uuid
-                gamePolicy += newGameData.format()
+                gamePolicy += "?" + newGameData.format()
                 return true
             } else {
                 val deviceRepository: DeviceRepository = DeviceImplementation(context)
@@ -52,7 +52,7 @@ object GameDataHolder {
                     dataStoreRepository.putString(LibData.gameDataU, this)
                 }
                 newGameData[LibData.gameDataA] = deviceRepository.googleAdId() ?: ""
-                gamePolicy += newGameData.format()
+                gamePolicy += "?" + newGameData.format()
                 return true
             }
         } else return false
