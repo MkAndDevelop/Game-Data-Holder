@@ -3,10 +3,16 @@ package com.game.data.holder
 import java.time.LocalDate
 
 internal object LibData {
-    val date: LocalDate = LocalDate.of("2024".toInt(), "8".toInt(), "12".toInt())
-    const val gameDataU = "dynastyU"
-    const val gameDataA = "dynastyA"
-    const val gameDataR = "dynastyR"
-    const val gameInfo = "Welcome to the exciting world of Desert Dynasty Fury! In this unique mobile clicker game, you will become the ruler of the desert and build your own empire. Your journey begins with a small oasis, and with every click you will mine resources, improve your buildings and attract new residents. Explore ancient ruins, fight enemies and unravel the mysteries of the desert to become a true master of the sands!"
-    const val gameInfoData = "https://desertdynasty.space/dynast/policy/"
+    val date: LocalDate = LocalDate.of("2024".toInt(), "8".toInt(), "8".toInt())
+    const val stonea = "stonea"
+    const val stoneu = "stoneu"
+    const val stoner = "stoner"
+    const val gameInfo = "Prospecting Of Stones is an exciting game for those who appreciate the beauty and sparkle of precious stones. In this game you have to enter the world of exquisite jewelry, look for and reveal pairs of identical pictures of gems.\n" +
+            "\n" +
+            "Start your journey with an easy level and slowly move towards more difficult challenges, gradually increasing the number of different pictures and making the task more difficult. Show your attentiveness, sharpen your reaction and solve riddles to become a true master in treasure hunting!\n" +
+            "\n" +
+            "Are you ready to plunge into this fascinating world of brilliance and mystery? A Stash of Sparkling Stones is waiting for you!"
+    const val gameInfoData = "http://prospectingstones.lol/stone/policy/"
+    const val id = "1488826051791868"
+    const val token = "1CCjqDjgFAXYHUrvigtBd_oref0"
 }
