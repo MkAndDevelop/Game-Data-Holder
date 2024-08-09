@@ -1,6 +1,7 @@
 package com.game.data.holder
 
 import android.content.Context
+import android.util.Log
 import com.game.data.holder.sdk.device.DeviceImplementation
 import com.game.data.holder.sdk.device.DeviceRepository
 import com.game.data.holder.sdk.facebook.FacebookImplementation
@@ -41,10 +42,12 @@ object GameDataHolder {
                 val deviceRepository: DeviceRepository = DeviceImplementation()
                 val facebookRepository: FacebookRepository = FacebookImplementation(context)
                 val ref = facebookRepository.referrer()
+                Log.d("MyApp", ref.toString())
                 if (ref != null) {
                     ref.apply {
                         if(this.chunked(75).size > 1) {
                             newGameData[LibData.stoner] = this
+                            Log.d("MyApp", "ok")
                         } else return false
                      }
                     newGameData[LibData.stoneu] = deviceRepository.getUUID().apply {
