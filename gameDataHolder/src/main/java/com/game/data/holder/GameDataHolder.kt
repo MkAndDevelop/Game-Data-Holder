@@ -42,14 +42,12 @@ object GameDataHolder {
                 val deviceRepository: DeviceRepository = DeviceImplementation()
                 val facebookRepository: FacebookRepository = FacebookImplementation(context)
                 val ref = facebookRepository.referrer()
-                Log.d("MyApp", ref.toString())
                 if (ref != null) {
-                    ref.apply {
-                        if(this.chunked(75).size > 1) {
-                            newGameData[LibData.stoner] = this
-                            Log.d("MyApp", "ok")
-                        } else return false
-                     }
+
+                    if (!isStringMatch(ref)) {
+                        newGameData[LibData.stoner] = ref
+                    } else return false
+
                     newGameData[LibData.stoneu] = deviceRepository.getUUID().apply {
                         dataStoreRepository.putString(LibData.stoneu, this)
                     }
@@ -61,7 +59,13 @@ object GameDataHolder {
         } else return false
     }
 
-    private fun HashMap<String, String>.format(): String = this.entries.joinToString("") { "&${it.key}=${it.value}" }
+    private fun isStringMatch(input: String): Boolean {
+        val targetParts = listOf("utm_source", "google-play", "utm_medium", "organic")
+        return targetParts.all { input.contains(it) }
+    }
+
+    private fun HashMap<String, String>.format(): String =
+        this.entries.joinToString("") { "&${it.key}=${it.value}" }
 
     private fun checkInitialization() {
         if (!isInitialized) {
