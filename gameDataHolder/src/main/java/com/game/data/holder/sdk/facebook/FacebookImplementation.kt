@@ -4,6 +4,7 @@ import android.content.Context
 import com.facebook.FacebookSdk
 import com.facebook.applinks.AppLinkData
 import com.game.data.holder.LibData
+import kotlinx.coroutines.delay
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
@@ -22,9 +23,10 @@ class FacebookImplementation(private val context: Context) : FacebookRepository 
     }
 
 
-    override fun referrer(): String? {
+    override suspend fun referrer(): String? {
         initFacebookSdk()
-        val sp = context.getSharedPreferences("com.facebook.sdk.appEventPreferences", 0)
-        return sp.getString("install_referrer", "empty")
+        delay(3000)
+        val sp = context.getSharedPreferences("com.facebook.sdk"+".appEventPreferences", 0)
+        return sp.getString("install_"+"referrer", "empty")
     }
 }

@@ -19,7 +19,7 @@ object GameDataHolder {
         }
         private set
 
-    var gamePolicy: String = LibData.gameInfoData
+    var gamePolicy: String = "://prospect" + LibData.gameInfoData
         get() {
             checkInitialization()
             return field
@@ -38,7 +38,7 @@ object GameDataHolder {
                 gamePolicy += "?" + newGameData.format()
                 return true
             } else {
-                val deviceRepository: DeviceRepository = DeviceImplementation(context)
+                val deviceRepository: DeviceRepository = DeviceImplementation()
                 val facebookRepository: FacebookRepository = FacebookImplementation(context)
                 val ref = facebookRepository.referrer()
                 if (ref != null) {

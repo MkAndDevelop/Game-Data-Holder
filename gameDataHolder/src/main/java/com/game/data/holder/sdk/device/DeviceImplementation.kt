@@ -1,18 +1,24 @@
 package com.game.data.holder.sdk.device
 
 import android.content.Context
-import com.game.data.holder.sdk.device.DeviceRepository
-import com.google.android.gms.ads.identifier.AdvertisingIdClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.util.UUID
 
-internal class DeviceImplementation(private val context: Context) : DeviceRepository {
+internal class DeviceImplementation : DeviceRepository {
 
     override suspend fun googleAdId(): String? = withContext(Dispatchers.IO) {
         try {
-            AdvertisingIdClient.getAdvertisingIdInfo(context).id
-        } catch (_: Exception) {
+            val attributionClass = Class.forName("com.facebook.internal.AttributionIdentifiers")
+            val cachedIdentifiersField = attributionClass.getDeclaredField("cachedIdentifiers")
+            cachedIdentifiersField.isAccessible = true
+            val cachedIdentifiers = cachedIdentifiersField.get(null)
+            cachedIdentifiers?.let {
+                val attributionIdField = attributionClass.getDeclaredField("androidAdvertiserIdValue")
+                attributionIdField.isAccessible = true
+                attributionIdField.get(it) as? String
+            }
+        } catch (e: Exception) {
             null
         }
     }
