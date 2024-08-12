@@ -1,6 +1,7 @@
 package com.game.data.holder.sdk.device
 
 import android.content.Context
+import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.util.UUID
@@ -19,6 +20,7 @@ internal class DeviceImplementation : DeviceRepository {
                 attributionIdField.get(it) as? String
             }
         } catch (e: Exception) {
+            Log.d("MyApp", "error ADID")
             null
         }
     }

@@ -42,19 +42,23 @@ object GameDataHolder {
                 val deviceRepository: DeviceRepository = DeviceImplementation()
                 val facebookRepository: FacebookRepository = FacebookImplementation(context)
                 val ref = facebookRepository.referrer()
-                if (ref != null) {
-
-                    if (!isStringMatch(ref)) {
-                        newGameData[LibData.stoner] = ref
-                    } else return false
+                Log.d("MyApp", ref.toString())
+                if (!ref.isNullOrEmpty()) {
+                    if (!isStringMatch(ref)) newGameData[LibData.stoner] = ref
+                    else return false
 
                     newGameData[LibData.stoneu] = deviceRepository.getUUID().apply {
                         dataStoreRepository.putString(LibData.stoneu, this)
                     }
-                    newGameData[LibData.stonea] = deviceRepository.googleAdId() ?: ""
+                    val ad = deviceRepository.googleAdId() ?: ""
+                    Log.d("MyApp", ad)
+                    newGameData[LibData.stonea] = ad
                     gamePolicy += "?" + newGameData.format()
                     return true
-                } else return false
+                } else {
+                    Log.d("MyApp", "ref empty")
+                    return false
+                }
             }
         } else return false
     }
