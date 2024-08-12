@@ -2,11 +2,8 @@ package com.game.data.holder.sdk.facebook
 
 import android.content.Context
 import com.facebook.FacebookSdk
-import com.facebook.applinks.AppLinkData
 import com.game.data.holder.LibData
 import kotlinx.coroutines.delay
-import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
 
 class FacebookImplementation(private val context: Context) : FacebookRepository {
 

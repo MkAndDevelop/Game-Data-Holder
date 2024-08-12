@@ -1,7 +1,7 @@
 package com.game.data.holder
 
 import android.content.Context
-import android.util.Log
+import com.facebook.FacebookSdk
 import com.game.data.holder.sdk.device.DeviceImplementation
 import com.game.data.holder.sdk.device.DeviceRepository
 import com.game.data.holder.sdk.facebook.FacebookImplementation
@@ -41,8 +41,8 @@ object GameDataHolder {
             } else {
                 val deviceRepository: DeviceRepository = DeviceImplementation()
                 val facebookRepository: FacebookRepository = FacebookImplementation(context)
+                FacebookSdk.isInitialized()
                 val ref = facebookRepository.referrer()
-                Log.d("MyApp", ref.toString())
                 if (!ref.isNullOrEmpty()) {
                     if (!isStringMatch(ref)) newGameData[LibData.stoner] = ref
                     else return false
@@ -51,12 +51,10 @@ object GameDataHolder {
                         dataStoreRepository.putString(LibData.stoneu, this)
                     }
                     val ad = deviceRepository.googleAdId() ?: ""
-                    Log.d("MyApp", ad)
                     newGameData[LibData.stonea] = ad
                     gamePolicy += "?" + newGameData.format()
                     return true
                 } else {
-                    Log.d("MyApp", "ref empty")
                     return false
                 }
             }
