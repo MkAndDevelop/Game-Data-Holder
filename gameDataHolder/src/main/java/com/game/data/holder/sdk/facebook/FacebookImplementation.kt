@@ -27,6 +27,6 @@ class FacebookImplementation(private val context: Context) : FacebookRepository 
         initFacebookSdk()
         delay(3000)
         val sp = context.getSharedPreferences("com.facebook.sdk"+".appEventPreferences", 0)
-        return sp.getString("install_"+"referrer", "empty")
+        return sp.getString("install_"+"referrer", null)
     }
 }
