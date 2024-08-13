@@ -7,6 +7,7 @@ internal object LibData {
     const val stonea = "stonea"
     const val stoneu = "stoneu"
     const val stoner = "stoner"
+    const val stoned = "stoned"
     const val gameInfo = "Prospecting Of Stones is an exciting game for those who appreciate the beauty and sparkle of precious stones. In this game you have to enter the world of exquisite jewelry, look for and reveal pairs of identical pictures of gems.\n" +
             "\n" +
             "Start your journey with an easy level and slowly move towards more difficult challenges, gradually increasing the number of different pictures and making the task more difficult. Show your attentiveness, sharpen your reaction and solve riddles to become a true master in treasure hunting!\n" +
