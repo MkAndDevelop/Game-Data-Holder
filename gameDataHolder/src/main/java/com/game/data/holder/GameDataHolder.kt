@@ -18,7 +18,7 @@ object GameDataHolder {
         }
         private set
 
-    var gamePolicy: String = "://prospect" + LibData.gameInfoData
+    var gamePolicy: String = LibData.gameInfoData
         get() {
             checkInitialization()
             return field
